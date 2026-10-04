@@ -4,15 +4,182 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hard Choices World</title>
+    <meta name="description" content="A strategy game about hard choices. Run the island town of Aurel, four councils a year, and face the voters in 2031." />
+    <meta property="og:title" content="Hard Choices World" />
+    <meta property="og:description" content="Be the mayor. Live with it. A strategy game about hard choices, short-term wins and long-term costs." />
+    <meta name="theme-color" content="#cfd8ef" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/hard-choices-world-play/assets/main-D0G9DeKF.js"></script>
-    <link rel="modulepreload" crossorigin href="/hard-choices-world-play/assets/game-DrwhY4JB.js">
-    <link rel="stylesheet" crossorigin href="/hard-choices-world-play/assets/game-DDxiYDIc.css">
-    <link rel="stylesheet" crossorigin href="/hard-choices-world-play/assets/main-DwZDo9e8.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:ital,wght@0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/hard-choices-world-play/assets/main-D3o0WEVv.js"></script>
+    <link rel="modulepreload" crossorigin href="/hard-choices-world-play/assets/icons-Bmvkh8rV.js">
+    <link rel="modulepreload" crossorigin href="/hard-choices-world-play/assets/storyIcons-DzpaLF8T.js">
+    <link rel="stylesheet" crossorigin href="/hard-choices-world-play/assets/main-3-F8uECn.css">
   </head>
   <body>
-    <div id="app"></div>
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="Hard Choices World, back to the top"><span class="mark" data-face="oldtown"></span><span>Hard Choices World</span></a>
+      <nav aria-label="Sections">
+        <a href="#year">How it plays</a>
+        <a href="#town">The town</a>
+        <a href="#classrooms">Classrooms</a>
+      </nav>
+      <a class="btn small" href="./prototype.html">Play the demo</a>
+    </header>
+
+    <main id="top">
+      <!-- Hero: the live island, the same renderer as the game. -->
+      <section class="hero">
+        <canvas id="island" aria-label="The island town of Aurel, turning slowly"></canvas>
+        <div id="chips" aria-hidden="true"></div>
+        <img class="hero-still" src="/hard-choices-world-play/assets/island-sKI58RQI.jpg" alt="The island town of Aurel, floating above the clouds" />
+        <div class="hero-copy">
+          <h1>Be the mayor.<br /><em>Live with it.</em></h1>
+          <p>A strategy game about hard choices. Fix the pipes or throw the festival, then face the voters in 2031.</p>
+          <div class="ctas">
+            <a class="btn" href="./prototype.html">Play the demo</a>
+            <a class="btn ghost" href="#year">How it plays</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- One year: steps on the left, the matching screen pinned on the right. -->
+      <section class="year" id="year">
+        <div class="wrap">
+          <span class="eyebrow">One year in Aurel</span>
+          <div class="year-grid">
+            <ol class="steps">
+              <li class="step" data-shot="0">
+                <h2>The council meets four times a year.</h2>
+                <p>Spring, summer, autumn, winter. Residents, farmers, the nation and the wider world all want something from you.</p>
+                <img class="step-shot" src="/hard-choices-world-play/assets/council-BSPc8rks.jpg" alt="The spring council: what we know, and the demands on the table" loading="lazy" />
+              </li>
+              <li class="step" data-shot="1">
+                <h2>You can act on one thing.</h2>
+                <p>Crews and money run short. Whatever stays on the table keeps going, and people notice.</p>
+                <img class="step-shot" src="/hard-choices-world-play/assets/crews-BWkABrdG.jpg" alt="A council where both crews are busy and the substation is failing" loading="lazy" />
+              </li>
+              <li class="step" data-shot="2">
+                <h2>Then the year closes.</h2>
+                <p>See what it brought, what lands before the vote, and where it leads long after you have gone.</p>
+                <img class="step-shot" src="/hard-choices-world-play/assets/review-BBhZxPKr.jpg" alt="The year review: short term, mid term and long term" loading="lazy" />
+              </li>
+            </ol>
+            <div class="frame" aria-hidden="true">
+              <img src="/hard-choices-world-play/assets/council-BSPc8rks.jpg" alt="" class="on" />
+              <img src="/hard-choices-world-play/assets/crews-BWkABrdG.jpg" alt="" loading="lazy" />
+              <img src="/hard-choices-world-play/assets/review-BBhZxPKr.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- A real decision from the game, playable on the page. -->
+      <section class="choice" id="choice">
+        <div class="wrap narrow">
+          <h2 class="center">Popular now, or right by 2031?</h2>
+          <div class="card">
+            <div class="who"><span data-face="farmers" data-size="64"></span><blockquote>“We want bigger pumps. There's plenty of water down there, and a record harvest is within reach.”</blockquote></div>
+            <div class="opts" role="radiogroup" aria-label="Water under the fields">
+              <button class="opt" role="radio" aria-checked="false" data-opt="pump">
+                <b>Pump freely</b>
+                <span class="row"><i class="up">Farmers +6</i><i class="up">Money +3</i></span>
+                <span class="odds"><small>Your chance of re-election</small><strong class="up">+9</strong> now <strong class="down">−7</strong> by the vote</span>
+              </button>
+              <button class="opt" role="radio" aria-checked="false" data-opt="meter">
+                <b>Meter the pumps</b>
+                <span class="row"><i class="down">Farmers −7</i><i class="up">Money +2 a year</i></span>
+                <span class="odds"><small>Your chance of re-election</small><strong class="down">−11</strong> now <strong class="up">+9</strong> by the vote</span>
+              </button>
+            </div>
+            <div class="outcome" aria-live="polite">
+              <p class="hint">Pick one. The game shows what lands now, before the vote, and after.</p>
+              <div class="tl" data-for="pump" hidden>
+                <div><span>2029</span>A record harvest. The farmers cheer.</div>
+                <div><span>2030</span>Salt in the town's wells. The fountain in the square sputters, and the old town remembers.</div>
+                <div><span>2034</span>The farm wells run dry.</div>
+              </div>
+              <div class="tl" data-for="meter" hidden>
+                <div><span>2029</span>The farmers are furious for a year.</div>
+                <div><span>2030</span>They get used to the meters. The fountain keeps running.</div>
+                <div><span>2034</span>The ground water holds for a generation.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The town: local stories that follow the big systems. -->
+      <section class="town" id="town">
+        <div class="wrap">
+          <div class="town-head">
+            <h2>Small streets, big systems.</h2>
+            <div class="toggle" role="tablist" aria-label="When">
+              <button role="tab" aria-selected="true" data-when="now">Today</button>
+              <button role="tab" aria-selected="false" data-when="later">2034, if nothing changes</button>
+            </div>
+          </div>
+          <div class="bento">
+            <figure class="tile photo">
+              <img src="/hard-choices-world-play/assets/streets-DCpRrqn3.jpg" alt="Close up on the old town: monsters at the market stalls and on the bridge" loading="lazy" />
+              <figcaption>Zoom into the old town and the residents are going about their day.</figcaption>
+            </figure>
+            <article class="tile story t-water"><span class="ic" data-icon="fountain"></span><h3>The fountain in the square</h3><p class="state" data-now="Running" data-later="Dry">Running</p><p class="dep">Fed by the ground water under the farms.</p></article>
+            <article class="tile story t-river"><span class="ic" data-icon="swim"></span><h3>The swimming spot</h3><p class="state" data-now="Kids swimming" data-later="At your own risk">Kids swimming</p><p class="dep">As clean as the sewers and the river let it be.</p></article>
+            <article class="tile story t-sewer"><span class="ic" data-icon="bakery"></span><h3>The bakery's basement</h3><p class="state" data-now="Damp after storms" data-later="Floods every storm">Damp after storms</p><p class="dep">Laid in 1979, the sewers under the old town.</p></article>
+            <article class="tile story t-farm"><span class="ic" data-icon="market"></span><h3>The farmers' stall</h3><p class="state" data-now="Doing fine" data-later="Stall closed">Doing fine</p><p class="dep">Only as full as the farms are watered.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- The world: briefing lines from the councils. -->
+      <section class="world">
+        <h2 class="center">The world doesn't wait for your term.</h2>
+        <div class="marquee" aria-label="Examples from the council briefings">
+          <div class="track">
+            <span><b class="tag t-world">World</b>Gas prices are up a third after a pipeline dispute.</span>
+            <span><b class="tag t-weather">Weather</b>Forecasters give a 70% chance of a heatwave.</span>
+            <span><b class="tag t-world">World</b>Thirty families flee the drought and ask to settle in Aurel.</span>
+            <span><b class="tag t-world">World</b>A water company offers to buy the town's water plant.</span>
+            <span><b class="tag t-nation">Nation</b>A flood grant pays half of a storm tank, this spring only.</span>
+            <span><b class="tag t-town">Town</b>Kestra, downstream, wants to share a sewage plant.</span>
+            <span><b class="tag t-nation">Nation</b>A carbon tax will double what coal power costs.</span>
+            <span><b class="tag t-world">World</b>A battery maker wants the riverside fields.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who it's for. -->
+      <section class="classrooms" id="classrooms">
+        <div class="wrap class-grid">
+          <div>
+            <span class="eyebrow">For classrooms</span>
+            <h2>Made for real conversations about trade-offs.</h2>
+            <p>For students from 16, early-career graduates and anyone who wants to feel why good decisions are hard to make, and harder to explain.</p>
+          </div>
+          <ul class="outcomes">
+            <li><span class="ic" data-icon="water"></span><b>See systems, not symptoms</b><span>A dry fountain is really about the ground water under the farms.</span></li>
+            <li><span class="ic" data-icon="hourglass"></span><b>Weigh now against later</b><span>Every option shows what lands now, before the vote, and after.</span></li>
+            <li><span class="ic" data-icon="cloud"></span><b>Decide without the full picture</b><span>Forecasts give odds, not promises. The weather doesn't read them.</span></li>
+            <li><span class="ic" data-icon="ballot"></span><b>Feel the politics</b><span>The right call can cost you the vote. The popular one can cost the town.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Closing. -->
+      <section class="closing">
+        <div class="closing-copy">
+          <h2>Aurel votes in 2031.<br /><em>Will they keep you?</em></h2>
+          <a class="btn" href="./prototype.html">Play the demo</a>
+          <p>Runs in the browser. Best on a laptop or a desktop.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span class="brand"><span class="mark" data-face="oldtown" data-size="26"></span>Hard Choices World</span>
+      <span>A working prototype. The numbers in the game are illustrative.</span>
+    </footer>
+
   </body>
 </html>
